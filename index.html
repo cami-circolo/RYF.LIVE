@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raise Your Frequency | CEO Immersion</title>
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#121315',
+                        gold: '#C9A77A',
+                        ivory: '#F2EDE6',
+                        sand: '#D7C7B3',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    spacing: {
+                        '8': '8px',
+                        '16': '16px',
+                        '24': '24px',
+                        '32': '32px',
+                        '48': '48px',
+                        '64': '64px',
+                        '96': '96px',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #121315;
+            color: #F2EDE6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Geometry motif: concentric rings / arcs at low opacity (6-14%) */
+        .bg-geometry {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.08; 
+            background-image: 
+                radial-gradient(circle at 10% 20%, transparent 0%, transparent 39.5%, #C9A77A 40%, transparent 40.5%),
+                radial-gradient(circle at 90% 80%, transparent 0%, transparent 29.5%, #C9A77A 30%, transparent 30.5%),
+                radial-gradient(circle at 50% 50%, transparent 0%, transparent 49.5%, #C9A77A 50%, transparent 50.5%);
+            background-size: 100% 100%;
+        }
+
+        .btn-primary {
+            background-color: #C9A77A;
+            color: #121315;
+            padding: 16px 32px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            border-radius: 2px;
+        }
+
+        .btn-primary:hover {
+            background-color: #D7C7B3;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px rgba(201, 167, 122, 0.3);
+        }
+
+        .btn-secondary {
+            border: 1px solid #C9A77A;
+            color: #C9A77A;
+            padding: 16px 32px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            border-radius: 2px;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(201, 167, 122, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .nav-scrolled {
+            background-color: rgba(18, 19, 21, 0.98);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(201, 167, 122, 0.1);
+        }
+
+        /* Form Styling - Premium Minimalism */
+        input, select, textarea {
+            background: transparent !important;
+            border: 0 !important;
+            border-bottom: 1px solid rgba(215, 199, 179, 0.2) !important;
+            border-radius: 0 !important;
+            padding: 16px 0 !important;
+            color: #F2EDE6 !important;
+            width: 100%;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none !important;
+            border-bottom: 1px solid #C9A77A !important;
+        }
+
+        label.field-label {
+            color: #C9A77A;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+        }
+
+        .pillar-card {
+            border-left: 1px solid rgba(201, 167, 122, 0.15);
+            padding-left: 24px;
+            transition: all 0.5s ease;
+        }
+
+        .pillar-card:hover {
+            border-left: 1px solid #C9A77A;
+            padding-left: 32px;
+        }
+
+        .section-padding {
+            padding-top: 96px;
+            padding-bottom: 96px;
+        }
+
+        .fade-in {
+            animation: fadeIn 1.2s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Lang Switcher */
+        .lang-btn {
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .lang-btn.active {
+            color: #C9A77A;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="font-sans selection:bg-gold selection:text-charcoal">
+
+    <div class="bg-geometry"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-8">
+        <div class="max-w-7xl mx-auto px-8 md:px-16 flex justify-between items-center">
+            <div class="flex items-center">
+                <span class="font-serif text-xl md:text-2xl tracking-[0.25em] text-gold uppercase font-light">Raise Your Frequency</span>
+            </div>
+            
+            <div class="hidden lg:flex items-center space-x-12 text-[10px] uppercase tracking-[0.3em] text-sand/80">
+                <a href="#event" data-i18n="nav_event" class="hover:text-gold transition-colors">The Event</a>
+                <a href="#why" data-i18n="nav_why" class="hover:text-gold transition-colors">Why It Matters</a>
+                <a href="#partnership" data-i18n="nav_partnership" class="hover:text-gold transition-colors">Partnership</a>
+                
+                <!-- Language Toggle -->
+                <div class="flex items-center space-x-2 border-l border-gold/20 pl-12">
+                    <span onclick="setLanguage('en')" id="lang-en" class="lang-btn active">EN</span>
+                    <span class="text-gold/20">|</span>
+                    <span onclick="setLanguage('es')" id="lang-es" class="lang-btn">ES</span>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <a href="https://RaiseYourFrequency.com" target="_blank" data-i18n="nav_cta" class="btn-secondary !py-3 !px-6 !text-[10px]">
+                    Go to Main Website
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex flex-col justify-center items-center text-center px-8 pt-24 overflow-hidden">
+        <div class="z-10 max-w-5xl fade-in">
+            <h1 class="font-serif text-5xl md:text-8xl text-gold mb-8 leading-[1.1] tracking-tight">
+                Raise Your Frequency
+            </h1>
+            <p data-i18n="hero_sub" class="font-sans text-sm md:text-base text-sand tracking-[0.4em] uppercase mb-12 font-light">
+                A Wellness & Leadership Immersion for CEOs
+            </p>
+            <div class="flex items-center justify-center space-x-4 mb-16 text-ivory/60 italic font-serif text-xl md:text-2xl">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-gold/60"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span data-i18n="hero_loc">Private Nature Reserve, San Francisco Bay Area</span>
+            </div>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-8">
+                <a href="#contact" data-i18n="hero_cta_partner" class="btn-primary w-full sm:w-auto min-w-[200px]">Partner With Us</a>
+                <a href="#event" data-i18n="hero_cta_more" class="btn-secondary w-full sm:w-auto min-w-[200px]">Learn More</a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-16 left-1/2 -translate-x-1/2 opacity-30">
+            <div class="w-px h-16 bg-gradient-to-b from-gold to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- The Event -->
+    <section id="event" class="section-padding bg-charcoal relative">
+        <div class="max-w-4xl mx-auto px-8 text-center">
+            <span data-i18n="event_label" class="text-[10px] uppercase tracking-[0.4em] text-gold/60 block mb-12">The Event</span>
+            <h2 data-i18n="event_headline" class="font-serif text-3xl md:text-5xl text-gold mb-16 leading-[1.4] italic font-light">
+                "Raise Your Frequency is an exclusive, one-day leadership and wellness immersion for visionary CEOs and business leaders."
+            </h2>
+            <div class="h-px w-32 bg-gold/20 mx-auto mb-16"></div>
+            <p data-i18n="event_desc" class="text-ivory/70 text-lg md:text-xl leading-relaxed font-light">
+                It is designed at the intersection of wellness, performance, and leadership — a transformative reset where leaders gain the vitality, clarity, and resilience required for their next chapter of life and leadership.
+            </p>
+        </div>
+    </section>
+
+    <!-- Why It Matters -->
+    <section id="why" class="section-padding bg-[#161719]">
+        <div class="max-w-7xl mx-auto px-8 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+            <div class="order-2 lg:order-1">
+                <span data-i18n="why_label" class="text-[10px] uppercase tracking-[0.4em] text-gold/60 block mb-12">Why It Matters</span>
+                <h2 data-i18n="why_headline" class="font-serif text-4xl md:text-6xl text-gold mb-12 leading-tight font-light">
+                    The Second Mountain
+                </h2>
+                <div class="space-y-8 text-ivory/80 text-lg leading-relaxed font-light">
+                    <p data-i18n="why_p1">
+                        Most leaders spend decades climbing the first mountain — building companies, wealth, and influence. But at the summit, many discover that health, energy, and joy have been left behind.
+                    </p>
+                    <p data-i18n="why_p2" class="text-gold/90 font-medium italic">
+                        Raise Your Frequency is about the second mountain: sustaining vitality, sharpening focus, and deepening purpose so leaders can thrive not only in business, but also in life.
+                    </p>
+                    <p data-i18n="why_p3">
+                        This event challenges the traditional definition of success and offers a blueprint for enduring performance, renewed energy, and expanded leadership capacity. It is a reset for leaders who want to extend their youthfulness, amplify clarity, and lead with longevity and purpose.
+                    </p>
+                </div>
+            </div>
+            <div class="order-1 lg:order-2 relative group">
+                <div class="absolute inset-0 border border-gold/10 translate-x-6 translate-y-6 transition-transform duration-700 group-hover:translate-x-3 group-hover:translate-y-3"></div>
+                <div class="aspect-[4/5] bg-charcoal flex items-center justify-center p-16 overflow-hidden relative border border-gold/5">
+                    <svg class="absolute opacity-10 text-gold animate-[spin_60s_linear_infinite]" width="500" height="500" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="0.2"/>
+                        <circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-width="0.2"/>
+                        <circle cx="50" cy="50" r="28" fill="none" stroke="currentColor" stroke-width="0.2"/>
+                    </svg>
+                    <div class="text-center relative z-10">
+                        <p data-i18n="card_title" class="font-serif text-3xl text-gold/80 leading-relaxed italic mb-4">Longevity & Purpose</p>
+                        <p data-i18n="card_sub" class="font-sans text-[10px] tracking-[0.4em] uppercase text-sand/50">Redefining Success</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What To Expect -->
+    <section class="section-padding bg-charcoal">
+        <div class="max-w-7xl mx-auto px-8 md:px-16">
+            <div class="text-center mb-24">
+                <span data-i18n="expect_label" class="text-[10px] uppercase tracking-[0.4em] text-gold/60 block mb-8">Four Pillars</span>
+                <h2 data-i18n="expect_headline" class="font-serif text-4xl md:text-5xl text-gold font-light">What to Expect</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8">
+                <div class="pillar-card">
+                    <h3 data-i18n="pillar1_title" class="font-serif text-2xl text-gold mb-6 font-light">Visionary Speakers</h3>
+                    <p data-i18n="pillar1_desc" class="text-ivory/60 text-sm leading-relaxed font-light">
+                        Global thought leaders redefining success and human potential.
+                    </p>
+                </div>
+                <div class="pillar-card">
+                    <h3 data-i18n="pillar2_title" class="font-serif text-2xl text-gold mb-6 font-light">Wellness Experiences</h3>
+                    <p data-i18n="pillar2_desc" class="text-ivory/60 text-sm leading-relaxed font-light">
+                        Proven practices to restore vitality, reverse burnout, and enhance focus.
+                    </p>
+                </div>
+                <div class="pillar-card">
+                    <h3 data-i18n="pillar3_title" class="font-serif text-2xl text-gold mb-6 font-light">Immersive Performances</h3>
+                    <p data-i18n="pillar3_desc" class="text-ivory/60 text-sm leading-relaxed font-light">
+                        A unique blend of entertainment and wellness designed to inspire and recharge.
+                    </p>
+                </div>
+                <div class="pillar-card">
+                    <h3 data-i18n="pillar4_title" class="font-serif text-2xl text-gold mb-6 font-light">Nature Immersion</h3>
+                    <p data-i18n="pillar4_desc" class="text-ivory/60 text-sm leading-relaxed font-light">
+                        A private reserve setting that fuels creativity, energy, and renewal.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Invitation -->
+    <section id="partnership" class="section-padding bg-[#0F1012] relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-8 text-center relative z-10">
+            <span data-i18n="partner_label" class="text-[10px] uppercase tracking-[0.4em] text-gold/60 block mb-12">Partnership Invitation</span>
+            <h2 data-i18n="partner_headline" class="font-serif text-4xl md:text-6xl text-gold mb-12 italic font-light">Shape the Future</h2>
+            <div class="space-y-8 text-ivory/80 text-xl leading-relaxed font-light mb-16">
+                <p data-i18n="partner_p1">
+                    We are inviting select partners to help shape the future of leadership and wellness. As a sponsor, your brand will stand at the forefront of this movement aligned with influential CEOs and visionaries who are redefining the future of performance and purpose.
+                </p>
+                <p data-i18n="partner_p2">
+                    By partnering with Raise Your Frequency, your brand gains visibility in an environment designed for transformation, vitality, and impact.
+                </p>
+            </div>
+            <div class="inline-block border-y border-gold/20 py-8 px-12">
+                <p data-i18n="partner_footer" class="text-gold font-sans tracking-[0.3em] uppercase text-xs font-medium">
+                    This is not just an event — it is a reset for the leaders who shape our world.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Capture Form -->
+    <section id="contact" class="section-padding bg-charcoal">
+        <div class="max-w-4xl mx-auto px-8">
+            <div class="bg-[#18191B] p-12 md:p-24 border border-gold/5 relative">
+                <div class="text-center mb-20">
+                    <span data-i18n="contact_label" class="text-[10px] uppercase tracking-[0.4em] text-gold/60 block mb-8">Contact</span>
+                    <h2 data-i18n="contact_headline" class="font-serif text-4xl text-gold font-light">Partnership Inquiry</h2>
+                </div>
+
+                <form id="partnershipForm" class="space-y-16">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+                        <div class="space-y-2">
+                            <label data-i18n="form_fname" class="field-label">First Name</label>
+                            <input type="text" id="input_fname" required placeholder="First Name">
+                        </div>
+                        <div class="space-y-2">
+                            <label data-i18n="form_lname" class="field-label">Last Name</label>
+                            <input type="text" id="input_lname" required placeholder="Last Name">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+                        <div class="space-y-2">
+                            <label data-i18n="form_company" class="field-label">Company</label>
+                            <input type="text" id="input_company" required placeholder="Organization Name">
+                        </div>
+                        <div class="space-y-2">
+                            <label data-i18n="form_email" class="field-label">Email</label>
+                            <input type="email" id="input_email" required placeholder="email@company.com">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label data-i18n="form_interest" class="field-label">Partnership Interest</label>
+                        <select required id="select_interest">
+                            <option value="" disabled selected data-i18n="form_interest_opt0">Select Interest Level</option>
+                            <option value="founding" data-i18n="form_interest_opt1">Founding Partner</option>
+                            <option value="experience" data-i18n="form_interest_opt2">Experience Sponsor</option>
+                            <option value="media" data-i18n="form_interest_opt3">Media Partnership</option>
+                            <option value="other" data-i18n="form_interest_opt4">General Inquiry</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label data-i18n="form_message" class="field-label">Message</label>
+                        <textarea rows="3" id="textarea_message" placeholder="How would you like to contribute?"></textarea>
+                    </div>
+
+                    <div class="pt-8 text-center">
+                        <button type="submit" data-i18n="form_submit" class="btn-primary w-full md:w-auto px-24">
+                            Submit Partnership Inquiry
+                        </button>
+                        <div id="formFeedback" data-i18n="form_feedback" class="mt-12 text-gold italic hidden animate-pulse">
+                            Your inquiry has been received. Our team will reach out shortly.
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-24 border-t border-gold/5 bg-charcoal text-center">
+        <div class="max-w-7xl mx-auto px-8">
+            <h2 class="font-serif text-2xl text-gold mb-8 uppercase tracking-[0.4em] font-light">Raise Your Frequency</h2>
+            <p data-i18n="footer_copy" class="text-sand/30 text-[10px] tracking-[0.5em] uppercase mb-12 font-light">© 2026 RYF ECOSYSTEM. ALL RIGHTS RESERVED.</p>
+            <div class="flex flex-wrap justify-center gap-12 text-[10px] uppercase tracking-[0.3em] text-sand/50">
+                <a href="#" data-i18n="footer_privacy" class="hover:text-gold transition-colors">Privacy Policy</a>
+                <a href="#" data-i18n="footer_terms" class="hover:text-gold transition-colors">Terms of Service</a>
+                <a href="mailto:partnerships@raiseyourfrequency.com" data-i18n="footer_email" class="hover:text-gold transition-colors underline underline-offset-8 decoration-gold/20">Email Inquiries</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                nav_event: "The Event",
+                nav_why: "Why It Matters",
+                nav_partnership: "Partnership",
+                nav_cta: "Go to Main Website",
+                hero_sub: "A Wellness & Leadership Immersion for CEOs",
+                hero_loc: "Private Nature Reserve, San Francisco Bay Area",
+                hero_cta_partner: "Partner With Us",
+                hero_cta_more: "Learn More",
+                event_label: "The Event",
+                event_headline: '"Raise Your Frequency is an exclusive, one-day leadership and wellness immersion for visionary CEOs and business leaders."',
+                event_desc: "It is designed at the intersection of wellness, performance, and leadership — a transformative reset where leaders gain the vitality, clarity, and resilience required for their next chapter of life and leadership.",
+                why_label: "Why It Matters",
+                why_headline: "The Second Mountain",
+                why_p1: "Most leaders spend decades climbing the first mountain — building companies, wealth, and influence. But at the summit, many discover that health, energy, and joy have been left behind.",
+                why_p2: "Raise Your Frequency is about the second mountain: sustaining vitality, sharpening focus, and deepening purpose so leaders can thrive not only in business, but also in life.",
+                why_p3: "This event challenges the traditional definition of success and offers a blueprint for enduring performance, renewed energy, and expanded leadership capacity. It is a reset for leaders who want to extend their youthfulness, amplify clarity, and lead with longevity and purpose.",
+                card_title: "Longevity & Purpose",
+                card_sub: "Redefining Success",
+                expect_label: "Four Pillars",
+                expect_headline: "What to Expect",
+                pillar1_title: "Visionary Speakers",
+                pillar1_desc: "Global thought leaders redefining success and human potential.",
+                pillar2_title: "Wellness Experiences",
+                pillar2_desc: "Proven practices to restore vitality, reverse burnout, and enhance focus.",
+                pillar3_title: "Immersive Performances",
+                pillar3_desc: "A unique blend of entertainment and wellness designed to inspire and recharge.",
+                pillar4_title: "Nature Immersion",
+                pillar4_desc: "A private reserve setting that fuels creativity, energy, and renewal.",
+                partner_label: "Partnership Invitation",
+                partner_headline: "Shape the Future",
+                partner_p1: "We are inviting select partners to help shape the future of leadership and wellness. As a sponsor, your brand will stand at the forefront of this movement aligned with influential CEOs and visionaries who are redefining the future of performance and purpose.",
+                partner_p2: "By partnering with Raise Your Frequency, your brand gains visibility in an environment designed for transformation, vitality, and impact.",
+                partner_footer: "This is not just an event — it is a reset for the leaders who shape our world.",
+                contact_label: "Contact",
+                contact_headline: "Partnership Inquiry",
+                form_fname: "First Name",
+                form_lname: "Last Name",
+                form_company: "Company",
+                form_email: "Email",
+                form_interest: "Partnership Interest",
+                form_interest_opt0: "Select Interest Level",
+                form_interest_opt1: "Founding Partner",
+                form_interest_opt2: "Experience Sponsor",
+                form_interest_opt3: "Media Partnership",
+                form_interest_opt4: "General Inquiry",
+                form_message: "Message",
+                form_submit: "Submit Partnership Inquiry",
+                form_feedback: "Your inquiry has been received. Our team will reach out shortly.",
+                footer_copy: "© 2026 RYF ECOSYSTEM. ALL RIGHTS RESERVED.",
+                footer_privacy: "Privacy Policy",
+                footer_terms: "Terms of Service",
+                footer_email: "Email Inquiries",
+                placeholder_fname: "First Name",
+                placeholder_lname: "Last Name",
+                placeholder_company: "Organization Name",
+                placeholder_email: "email@company.com",
+                placeholder_message: "How would you like to contribute?"
+            },
+            es: {
+                nav_event: "El Evento",
+                nav_why: "Por Qué Importa",
+                nav_partnership: "Alianza",
+                nav_cta: "Ir al Sitio Principal",
+                hero_sub: "Una Inmersión de Bienestar y Liderazgo para CEOs",
+                hero_loc: "Reserva Natural Privada, Área de la Bahía de San Francisco",
+                hero_cta_partner: "Sé nuestro aliado",
+                hero_cta_more: "Saber Más",
+                event_label: "El Evento",
+                event_headline: '"Raise Your Frequency es una inmersión exclusiva de un día en liderazgo y bienestar para CEOs visionarios y líderes empresariales."',
+                event_desc: "Está diseñado en la intersección del bienestar, el rendimiento y el liderazgo: un reinicio transformador donde los líderes obtienen la vitalidad, claridad y resiliencia necesarias para su próximo capítulo de vida y liderazgo.",
+                why_label: "Por Qué Importa",
+                why_headline: "La Segunda Montaña",
+                why_p1: "La mayoría de los líderes pasan décadas escalando la primera montaña: construyendo empresas, riqueza e influencia. Pero en la cima, muchos descubren que la salud, la energía y la alegría se han quedado atrás.",
+                why_p2: "Raise Your Frequency trata sobre la segunda montaña: mantener la vitalidad, agudizar el enfoque y profundizar el propósito para que los líderes puedan prosperar no solo en los negocios, sino también en la vida.",
+                why_p3: "Este evento desafía la definición tradicional de éxito y ofrece un plan para un rendimiento duradero, energía renovada y una capacidad de liderazgo ampliada. Es un reinicio para líderes que desean extender su juventud, ampliar su claridad y liderar con longevidad y propósito.",
+                card_title: "Longevidad y Propósito",
+                card_sub: "Redefiniendo el Éxito",
+                expect_label: "Cuatro Pilares",
+                expect_headline: "Qué Esperar",
+                pillar1_title: "Ponentes Visionarios",
+                pillar1_desc: "Líderes de pensamiento global que redefinen el éxito y el potencial humano.",
+                pillar2_title: "Experiencias de Bienestar",
+                pillar2_desc: "Prácticas probadas para restaurar la vitalidad, revertir el agotamiento y mejorar el enfoque.",
+                pillar3_title: "Actuaciones Inmersivas",
+                pillar3_desc: "Una mezcla única de entretenimiento y bienestar diseñada para inspirar y recargar energías.",
+                pillar4_title: "Inmersión en la Naturaleza",
+                pillar4_desc: "Un entorno de reserva privada que impulsa la creatividad, la energía y la renovación.",
+                partner_label: "Invitación de Alianza",
+                partner_headline: "Forma el Futuro",
+                partner_p1: "Invitamos a socios selectos a ayudar a dar forma al futuro del liderazgo y el bienestar. Como patrocinador, su marca estará a la vanguardia de este movimiento alineado con CEOs influyentes y visionarios que están redefiniendo el futuro del rendimiento y el propósito.",
+                partner_p2: "Al asociarse con Raise Your Frequency, su marca gana visibilidad en un entorno diseñado para la transformación, la vitalidad y el impacto.",
+                partner_footer: "Esto no es solo un evento — es un reinicio para los líderes que dan forma a nuestro mundo.",
+                contact_label: "Contacto",
+                contact_headline: "Solicitud de Alianza",
+                form_fname: "Nombre",
+                form_lname: "Apellido",
+                form_company: "Empresa",
+                form_email: "Correo Electrónico",
+                form_interest: "Interés de Alianza",
+                form_interest_opt0: "Seleccione Nivel de Interés",
+                form_interest_opt1: "Socio Fundador",
+                form_interest_opt2: "Patrocinador de Experiencia",
+                form_interest_opt3: "Alianza de Medios",
+                form_interest_opt4: "Consulta General",
+                form_message: "Mensaje",
+                form_submit: "Enviar Solicitud",
+                form_feedback: "Su consulta ha sido recibida. Nuestro equipo se pondrá en contacto pronto.",
+                footer_copy: "© 2026 ECOSISTEMA RYF. TODOS LOS DERECHOS RESERVADOS.",
+                footer_privacy: "Política de Privacidad",
+                footer_terms: "Términos de Servicio",
+                footer_email: "Consultas por Email",
+                placeholder_fname: "Nombre",
+                placeholder_lname: "Apellido",
+                placeholder_company: "Nombre de la Organización",
+                placeholder_email: "correo@empresa.com",
+                placeholder_message: "¿Cómo le gustaría contribuir al movimiento?"
+            }
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                el.innerText = translations[lang][key];
+            });
+
+            // Update placeholders
+            document.getElementById('input_fname').placeholder = translations[lang].placeholder_fname;
+            document.getElementById('input_lname').placeholder = translations[lang].placeholder_lname;
+            document.getElementById('input_company').placeholder = translations[lang].placeholder_company;
+            document.getElementById('input_email').placeholder = translations[lang].placeholder_email;
+            document.getElementById('textarea_message').placeholder = translations[lang].placeholder_message;
+
+            // Update active states
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+            document.getElementById('lang-es').classList.toggle('active', lang === 'es');
+            document.documentElement.lang = lang;
+        }
+
+        // Navbar scroll behavior
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('nav-scrolled', 'py-4');
+                navbar.classList.remove('py-8');
+            } else {
+                navbar.classList.remove('nav-scrolled', 'py-4');
+                navbar.classList.add('py-8');
+            }
+        });
+
+        // Form handling
+        const form = document.getElementById('partnershipForm');
+        const feedback = document.getElementById('formFeedback');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            form.style.opacity = '0.3';
+            form.style.pointerEvents = 'none';
+            feedback.classList.remove('hidden');
+            feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+        // Smooth scroll for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = 100;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -51,13 +51,35 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 0;
+            z-index: 1;
             opacity: 0.08; 
             background-image: 
                 radial-gradient(circle at 10% 20%, transparent 0%, transparent 39.5%, #C9A77A 40%, transparent 40.5%),
                 radial-gradient(circle at 90% 80%, transparent 0%, transparent 29.5%, #C9A77A 30%, transparent 30.5%),
                 radial-gradient(circle at 50% 50%, transparent 0%, transparent 49.5%, #C9A77A 50%, transparent 50.5%);
             background-size: 100% 100%;
+        }
+
+        .hero-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://cdn.prod.website-files.com/67ea12a6cb5c87586b4cbec0/69bb1180332340b70c2a7fe0_WhatsApp%20Image%202026-03-18%20at%2014.44.28.jpeg');
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(18, 19, 21, 0.6) 0%, rgba(18, 19, 21, 0.8) 70%, rgba(18, 19, 21, 1) 100%);
+            z-index: 1;
         }
 
         .btn-primary {
@@ -95,13 +117,13 @@
             transform: translateY(-2px);
         }
 
+        /* Navbar adjusted for constant transparency */
         .nav-scrolled {
-            background-color: rgba(18, 19, 21, 0.98);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(201, 167, 122, 0.1);
+            border-bottom: 1px solid rgba(201, 167, 122, 0.05);
+            /* Background removed as per request */
         }
 
-        /* Form Styling - Premium Minimalism */
+        /* Form Styling */
         input, select, textarea {
             background: transparent !important;
             border: 0 !important;
@@ -161,6 +183,40 @@
             color: #C9A77A;
             font-weight: 600;
         }
+
+        /* SUTTLE Cinematic Image Section */
+        .cinematic-image-section {
+            position: relative;
+            height: 60vh;
+            overflow: hidden;
+            background-color: #121315;
+        }
+        
+        .cinematic-img-inner {
+            width: 100%;
+            height: 100%;
+            background-image: url('https://cdn.prod.website-files.com/67ea12a6cb5c87586b4cbec0/69bb118339d50610f6590b9e_WhatsApp%20Image%202026-03-18%20at%2014.44.28%20(1).jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: saturate(0.6) brightness(0.7); /* More subtle filter */
+        }
+
+        .cinematic-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, #121315 0%, transparent 20%, transparent 80%, #121315 100%);
+            z-index: 2;
+        }
+
+        @media (max-width: 768px) {
+            .cinematic-image-section {
+                height: 40vh;
+            }
+            .cinematic-img-inner {
+                background-attachment: scroll;
+            }
+        }
     </style>
 </head>
 <body class="font-sans selection:bg-gold selection:text-charcoal">
@@ -171,7 +227,14 @@
     <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-8">
         <div class="max-w-7xl mx-auto px-8 md:px-16 flex justify-between items-center">
             <div class="flex items-center">
-                <span class="font-serif text-xl md:text-2xl tracking-[0.25em] text-gold uppercase font-light">Raise Your Frequency</span>
+                <!-- Branding with Constant Size Logo -->
+                <a href="#" class="block h-12 md:h-20" id="logo-container">
+                    <img src="https://cdn.prod.website-files.com/67ea12a6cb5c87586b4cbec0/69bb10b7c996d22c4ab45ad6_6.png" 
+                         alt="Raise Your Frequency Logo" 
+                         class="h-full w-auto object-contain"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="hidden font-serif text-xl tracking-[0.25em] text-gold uppercase font-light">Raise Your Frequency</span>
+                </a>
             </div>
             
             <div class="hidden lg:flex items-center space-x-12 text-[10px] uppercase tracking-[0.3em] text-sand/80">
@@ -197,7 +260,10 @@
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex flex-col justify-center items-center text-center px-8 pt-24 overflow-hidden">
-        <div class="z-10 max-w-5xl fade-in">
+        <div class="hero-bg-image"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="z-10 max-w-5xl fade-in relative">
             <h1 class="font-serif text-5xl md:text-8xl text-gold mb-8 leading-[1.1] tracking-tight">
                 Raise Your Frequency
             </h1>
@@ -214,7 +280,7 @@
             </div>
         </div>
         
-        <div class="absolute bottom-16 left-1/2 -translate-x-1/2 opacity-30">
+        <div class="z-10 absolute bottom-16 left-1/2 -translate-x-1/2 opacity-30">
             <div class="w-px h-16 bg-gradient-to-b from-gold to-transparent"></div>
         </div>
     </section>
@@ -270,8 +336,14 @@
         </div>
     </section>
 
+    <!-- SUBTLE Cinematic Image Section -->
+    <div class="cinematic-image-section">
+        <div class="cinematic-overlay"></div>
+        <div class="cinematic-img-inner"></div>
+    </div>
+
     <!-- What To Expect -->
-    <section class="section-padding bg-charcoal">
+    <section id="expect" class="section-padding bg-charcoal">
         <div class="max-w-7xl mx-auto px-8 md:px-16">
             <div class="text-center mb-24">
                 <span data-i18n="expect_label" class="text-[10px] uppercase tracking-[0.4em] text-gold/60 block mb-8">Four Pillars</span>
@@ -543,7 +615,7 @@
             document.documentElement.lang = lang;
         }
 
-        // Navbar scroll behavior
+        // Navbar scroll behavior (Constant transparency)
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {

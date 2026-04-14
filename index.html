@@ -117,10 +117,10 @@
             transform: translateY(-2px);
         }
 
-        /* Navbar adjusted for constant transparency */
+        /* Navbar stays transparent but adds a subtle border when scrolled */
         .nav-scrolled {
             border-bottom: 1px solid rgba(201, 167, 122, 0.05);
-            /* Background removed as per request */
+            backdrop-filter: blur(8px);
         }
 
         /* Form Styling */
@@ -184,7 +184,7 @@
             font-weight: 600;
         }
 
-        /* SUTTLE Cinematic Image Section */
+        /* Cinematic Image Section */
         .cinematic-image-section {
             position: relative;
             height: 60vh;
@@ -199,7 +199,7 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            filter: saturate(0.6) brightness(0.7); /* More subtle filter */
+            filter: saturate(0.6) brightness(0.6);
         }
 
         .cinematic-overlay {
@@ -226,8 +226,8 @@
     <!-- Navigation -->
     <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-8">
         <div class="max-w-7xl mx-auto px-8 md:px-16 flex justify-between items-center">
+            <!-- Aligning Logo to the center vertically -->
             <div class="flex items-center">
-                <!-- Branding with Constant Size Logo -->
                 <a href="#" class="block h-12 md:h-20" id="logo-container">
                     <img src="https://cdn.prod.website-files.com/67ea12a6cb5c87586b4cbec0/69bb10b7c996d22c4ab45ad6_6.png" 
                          alt="Raise Your Frequency Logo" 
@@ -242,7 +242,7 @@
                 <a href="#why" data-i18n="nav_why" class="hover:text-gold transition-colors">Why It Matters</a>
                 <a href="#partnership" data-i18n="nav_partnership" class="hover:text-gold transition-colors">Partnership</a>
                 
-                <!-- Language Toggle -->
+                <!-- Language Toggle aligned to center -->
                 <div class="flex items-center space-x-2 border-l border-gold/20 pl-12">
                     <span onclick="setLanguage('en')" id="lang-en" class="lang-btn active">EN</span>
                     <span class="text-gold/20">|</span>
@@ -250,6 +250,7 @@
                 </div>
             </div>
 
+            <!-- CTA Adjusted to align to the center -->
             <div class="flex items-center space-x-4">
                 <a href="https://RaiseYourFrequency.com" target="_blank" data-i18n="nav_cta" class="btn-secondary !py-3 !px-6 !text-[10px]">
                     Go to Main Website
@@ -336,7 +337,7 @@
         </div>
     </section>
 
-    <!-- SUBTLE Cinematic Image Section -->
+    <!-- Cinematic Image Section -->
     <div class="cinematic-image-section">
         <div class="cinematic-overlay"></div>
         <div class="cinematic-img-inner"></div>
@@ -466,10 +467,8 @@
         <div class="max-w-7xl mx-auto px-8">
             <h2 class="font-serif text-2xl text-gold mb-8 uppercase tracking-[0.4em] font-light">Raise Your Frequency</h2>
             <p data-i18n="footer_copy" class="text-sand/30 text-[10px] tracking-[0.5em] uppercase mb-12 font-light">© 2026 RYF ECOSYSTEM. ALL RIGHTS RESERVED.</p>
-            <div class="flex flex-wrap justify-center gap-12 text-[10px] uppercase tracking-[0.3em] text-sand/50">
-                <a href="#" data-i18n="footer_privacy" class="hover:text-gold transition-colors">Privacy Policy</a>
-                <a href="#" data-i18n="footer_terms" class="hover:text-gold transition-colors">Terms of Service</a>
-                <a href="mailto:partnerships@raiseyourfrequency.com" data-i18n="footer_email" class="hover:text-gold transition-colors underline underline-offset-8 decoration-gold/20">Email Inquiries</a>
+            <div class="flex justify-center text-[10px] uppercase tracking-[0.3em] text-sand/50">
+                <a href="mailto:Megan@meganpormer.com" data-i18n="footer_email" class="hover:text-gold transition-colors underline underline-offset-8 decoration-gold/20">Megan@meganpormer.com</a>
             </div>
         </div>
     </footer>
@@ -526,9 +525,7 @@
                 form_submit: "Submit Partnership Inquiry",
                 form_feedback: "Your inquiry has been received. Our team will reach out shortly.",
                 footer_copy: "© 2026 RYF ECOSYSTEM. ALL RIGHTS RESERVED.",
-                footer_privacy: "Privacy Policy",
-                footer_terms: "Terms of Service",
-                footer_email: "Email Inquiries",
+                footer_email: "Megan@meganpormer.com",
                 placeholder_fname: "First Name",
                 placeholder_lname: "Last Name",
                 placeholder_company: "Organization Name",
@@ -539,10 +536,10 @@
                 nav_event: "El Evento",
                 nav_why: "Por Qué Importa",
                 nav_partnership: "Alianza",
-                nav_cta: "Ir al Sitio Principal",
+                nav_cta: "Sitio Principal",
                 hero_sub: "Una Inmersión de Bienestar y Liderazgo para CEOs",
                 hero_loc: "Reserva Natural Privada, Área de la Bahía de San Francisco",
-                hero_cta_partner: "Sé nuestro aliado",
+                hero_cta_partner: "Socio",
                 hero_cta_more: "Saber Más",
                 event_label: "El Evento",
                 event_headline: '"Raise Your Frequency es una inmersión exclusiva de un día en liderazgo y bienestar para CEOs visionarios y líderes empresariales."',
@@ -574,9 +571,9 @@
                 form_fname: "Nombre",
                 form_lname: "Apellido",
                 form_company: "Empresa",
-                form_email: "Correo Electrónico",
+                form_email: "Email",
                 form_interest: "Interés de Alianza",
-                form_interest_opt0: "Seleccione Nivel de Interés",
+                form_interest_opt0: "Seleccione Nivel",
                 form_interest_opt1: "Socio Fundador",
                 form_interest_opt2: "Patrocinador de Experiencia",
                 form_interest_opt3: "Alianza de Medios",
@@ -585,14 +582,12 @@
                 form_submit: "Enviar Solicitud",
                 form_feedback: "Su consulta ha sido recibida. Nuestro equipo se pondrá en contacto pronto.",
                 footer_copy: "© 2026 ECOSISTEMA RYF. TODOS LOS DERECHOS RESERVADOS.",
-                footer_privacy: "Política de Privacidad",
-                footer_terms: "Términos de Servicio",
-                footer_email: "Consultas por Email",
+                footer_email: "Megan@meganpormer.com",
                 placeholder_fname: "Nombre",
                 placeholder_lname: "Apellido",
                 placeholder_company: "Nombre de la Organización",
                 placeholder_email: "correo@empresa.com",
-                placeholder_message: "¿Cómo le gustaría contribuir al movimiento?"
+                placeholder_message: "¿Cómo le gustaría contribuir?"
             }
         };
 
@@ -615,7 +610,7 @@
             document.documentElement.lang = lang;
         }
 
-        // Navbar scroll behavior (Constant transparency)
+        // Navbar scroll behavior (Constant transparency with glass effect)
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
